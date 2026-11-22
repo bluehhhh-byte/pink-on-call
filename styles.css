@@ -902,3 +902,14 @@ p.novel-para:has(> .who) { display: flow-root; }
 /* 상상 장면 그림 · 엔딩 그림 */
 .imag-img { margin: 0.55em 0 0.15em; border-radius: 12px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); }
 .ending-img { margin: 1.1em auto 0.4em; border-radius: 12px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); }
+
+/* 핑크는 통화 중: 제목 · 장면 머리 · 지문 기본색을 분홍으로 (대사는 본래 글자색) */
+:root { --pink-head: #ff7fb2; --pink-ink: #ffa3c9; }
+html[data-theme="sepia"] { --pink-head: #b0386a; --pink-ink: #9c3a63; }
+html[data-theme="paper"] { --pink-head: #b8326c; --pink-ink: #a12d5e; }
+html[data-theme="dawn"] { --pink-head: #b63e72; --pink-ink: #9e3a66; }
+.cover-title, .drawer-book-title, .page-header-strip .rh-left { color: var(--pink-head); }
+.page-header-strip .rh-left { opacity: 1; }
+.scene-head { color: var(--pink-head); opacity: 1; }
+.page-body-content p.novel-para, .scroll-chapter-block p { color: var(--pink-ink); }
+.page-body-content p.novel-para:has(> .who), .scroll-chapter-block p:has(> .who) { color: var(--text-primary); }
