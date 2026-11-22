@@ -914,6 +914,34 @@ html[data-theme="dawn"] { --pink-head: #b63e72; --pink-ink: #9e3a66; }
 
 .scene-img.imag-img, .scene-img.ending-img { image-rendering: pixelated; }
 
+.ice-crack-art {
+  position: relative;
+  display: block;
+  margin: 0.55em 0 0.15em;
+}
+.ice-crack-art .imag-img { margin: 0; }
+.ice-crack-light {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  pointer-events: none;
+  filter: drop-shadow(0 0 2px #fe72ce) drop-shadow(0 0 6px #ff408c);
+}
+.ice-crack-light::before, .ice-crack-light::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #ffb9e5;
+}
+.ice-crack-light::before {
+  clip-path: polygon(53.3% 2%, 56.1% 19%, 54.7% 31%, 60.2% 38%, 57.3% 48%, 60.1% 57%, 56.3% 66%, 57.4% 74%, 53.6% 84%, 52.7% 90%, 53.2% 83.8%, 57% 73.8%, 55.9% 65.8%, 59.6% 56.9%, 56.8% 47.7%, 59.7% 38.2%, 54.3% 31.2%, 55.8% 19.1%);
+}
+.ice-crack-light::after {
+  opacity: 0.73;
+  clip-path: polygon(57.7% 45.5%, 61.7% 46.9%, 63% 51.5%, 65.7% 53.4%, 62.8% 51.9%, 61.5% 47.4%, 57.5% 46%);
+}
+
 /* 인물별 색 (이름 칸만, 대사는 기본 글자색). 어두운 테마는 밝게, 밝은 테마는 진하게 */
 :root { --c-jb: #c9a6ff; --c-mg: #ff9cc8; --c-hr: #ffd866; --c-jh: #8fc4ff; }
 html[data-theme="sepia"], html[data-theme="paper"], html[data-theme="dawn"] { --c-jb: #6a3fb5; --c-mg: #b8326c; --c-hr: #8f6200; --c-jh: #1f5fae; }
