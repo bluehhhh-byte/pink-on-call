@@ -50,12 +50,12 @@
     { kind: "애니메이션", by: "노다 히로시, 와카마쓰 다카히로", title: "사랑은 세계정복 후에", year: 2022, url: "https://www.youtube.com/results?search_query=%EC%82%AC%EB%9E%91%EC%9D%80%20%EC%84%B8%EA%B3%84%EC%A0%95%EB%B3%B5%20%ED%9B%84%EC%97%90%20%EC%98%88%EA%B3%A0%ED%8E%B8" },
     { kind: "특촬", by: "도에이", title: "광전대 마스크맨", year: 1987, url: "https://www.youtube.com/results?search_query=%EA%B4%91%EC%A0%84%EB%8C%80%20%EB%A7%88%EC%8A%A4%ED%81%AC%EB%A7%A8%20%EC%98%A4%ED%94%84%EB%8B%9D" },
     { kind: "특촬", by: "도에이", title: "초전자 바이오맨", year: 1984, url: "https://www.youtube.com/results?search_query=%EB%B0%94%EC%9D%B4%EC%98%A4%EB%A7%A8%20%ED%94%BC%EB%B3%B4" },
-    { kind: "음악", by: "듀스", title: "나를 돌아봐", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%82%98%EB%A5%BC%20%EB%8F%8C%EC%95%84%EB%B4%90" },
-    { kind: "음악", by: "듀스", title: "우리는", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EC%9A%B0%EB%A6%AC%EB%8A%94" },
-    { kind: "음악", by: "듀스", title: "사랑, 두려움", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EC%82%AC%EB%9E%91%2C%20%EB%91%90%EB%A0%A4%EC%9B%80" },
-    { kind: "음악", by: "듀스", title: "다투고 난 뒤", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%8B%A4%ED%88%AC%EA%B3%A0%20%EB%82%9C%20%EB%92%A4" },
+    { kind: "음악", by: "듀스", title: "나를 돌아봐", year: 1993, url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%82%98%EB%A5%BC%20%EB%8F%8C%EC%95%84%EB%B4%90" },
+    { kind: "음악", by: "듀스", title: "우리는", year: 1993, url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EC%9A%B0%EB%A6%AC%EB%8A%94" },
+    { kind: "음악", by: "듀스", title: "사랑, 두려움", year: 1997, url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EC%82%AC%EB%9E%91%2C%20%EB%91%90%EB%A0%A4%EC%9B%80" },
+    { kind: "음악", by: "듀스", title: "다투고 난 뒤", year: 1995, url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%8B%A4%ED%88%AC%EA%B3%A0%20%EB%82%9C%20%EB%92%A4" },
     { kind: "음악", by: "듀스", title: "또 하루", year: 2026, url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%98%90%20%ED%95%98%EB%A3%A8" },
-    { kind: "음악", by: "듀스", title: "굴레를 벗어나", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EA%B5%B4%EB%A0%88%EB%A5%BC%20%EB%B2%97%EC%96%B4%EB%82%98" }
+    { kind: "음악", by: "듀스", title: "굴레를 벗어나", year: 1995, url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EA%B5%B4%EB%A0%88%EB%A5%BC%20%EB%B2%97%EC%96%B4%EB%82%98" }
   ];
 
   // 제범의 상상 문단 → 그림 (scenes/imag/*.webp). 문단이 이 문구로 시작하면 그 아래에 붙임
