@@ -14,8 +14,8 @@
   'use strict';
 
   const STORAGE_KEY_SETTINGS = 'pink_on_call_settings_v1';
-  const STORAGE_KEY_PROGRESS = 'pink_on_call_progress_v2';
-  const STORAGE_KEY_BOOKMARKS = 'pink_on_call_bookmarks_v2';
+  const STORAGE_KEY_PROGRESS = 'pink_on_call_progress_v3';
+  const STORAGE_KEY_BOOKMARKS = 'pink_on_call_bookmarks_v3';
 
   const FONT_MAP = {
     gowun: "'Gowun Batang', 'Noto Serif KR', serif",
@@ -106,7 +106,7 @@
 
   // Season per scene (S#) — 날씨·계절이 화면에 보이는 장면에만. 나머지는 효과 없음
   const SCENE_SEASON = {
-    10: { key: 'rain', density: 0.5 }
+    14: { key: 'rain', density: 0.5 }
   };
 
   // The scene showing at the end of a content page (so a new weather scene starts with its page)
@@ -288,7 +288,7 @@
             ${coverStarsSvg()}
           </svg>
           <div class="cover-frame-line" aria-hidden="true"></div>
-          <span class="cover-genre">단편 시나리오</span>
+          <span class="cover-genre">시나리오 확장판</span>
           <div class="cover-content">
             <div class="cover-head">
               <span class="cover-rule"></span>
