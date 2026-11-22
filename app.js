@@ -439,7 +439,7 @@
 
   // Fill pages with as many paragraphs as fit. headHtml opens the first page; tailHtml must fit on the last
   // (falls to a new page with the final paragraph if it doesn't). Returns [{start, end, html}].
-  function fillPages(measureBody, maxH, paras, renderPara, headHtml, tailHtml) {
+  function fillPages(measureBody, maxH, paras, renderPara, headHtml, tailHtml, splitHead) {
     const out = [];
     let pIdx = 0;
     do {
@@ -448,6 +448,8 @@
       while (pIdx < paras.length) {
         measureBody.insertAdjacentHTML('beforeend', renderPara(paras[pIdx], pIdx));
         if (measureBody.scrollHeight > maxH && parts.length) { measureBody.lastElementChild.remove(); break; }
+        // 제목·그림이 든 첫 페이지에 첫 문단이 다 들어가지 않으면 문단을 다음 페이지로 보낸다 (잘림 방지)
+        if (splitHead && !out.length && !parts.length && measureBody.scrollHeight > maxH) { measureBody.lastElementChild.remove(); break; }
         parts.push(measureBody.lastElementChild.outerHTML);
         pIdx++;
         if (measureBody.scrollHeight > maxH) break; // oversized single paragraph
@@ -507,7 +509,7 @@
       html: `${contentHeaderHtml('다음 화 예고')}<div class="page-body-content credits-page">${pg.html}</div>${contentFooterHtml('')}`
     });
     // Signature is the tail: it never sits alone, the last paragraph moves with it if needed
-    fillPages(measureBody, maxBodyHeight, AFTERWORD_ITEMS, creditsItemHtml, CREDITS_TOP_HTML, SIGNATURE_HTML).forEach((pg) => pushCredits(pg, 0));
+    fillPages(measureBody, maxBodyHeight, AFTERWORD_ITEMS, creditsItemHtml, CREDITS_TOP_HTML, SIGNATURE_HTML, true).forEach((pg) => pushCredits(pg, 0));
     // Inspirations always open a fresh page, with the back-to-cover button beneath
     fillPages(measureBody, maxBodyHeight, [INSPIRATIONS_HTML], creditsItemHtml, '', creditsBottomHtml(true)).forEach((pg) => pushCredits(pg, AFTERWORD_ITEMS.length));
     measureBody.classList.remove('credits-page');
