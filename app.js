@@ -32,15 +32,15 @@
   const CREDITS_CHAPTER_ID = 99;
   // 다음 화 예고 — 에필로그. '*' = 장면 나눔
   const AFTERWORD_PARAS = [
-    "12월. 첫눈이 온 밤, 보이스톡이 울린다. 핑크다. \"너 오늘 내 장갑, 네 마음대로 골라 사 왔지.\" 악당은 순순히 패배를 인정한다. 다음 날 그녀는 그 장갑을 끼고 나온다. 손이 따뜻하다고, 얼굴 보고 말한다.",
+    "12월. 첫눈이 온 밤, 보이스톡이 울린다. 핑크다. \"너 오늘 내 장갑, 네 마음대로 골라 사 왔지.\" 황제는 순순히 패배를 인정한다. 다음 날 모경은 그 장갑을 끼고 나온다. 손이 따뜻하다고, 얼굴 보고 말한다.",
     "*",
-    "2월. 그가 처음으로 영상통화로 화를 낸다. 회사 일 때문이다. 그녀는 아무것도 정해 주지 않고 끝까지 듣는다. 다 듣고 나서 묻는다. \"그래서, 너는 어떻게 하고 싶어?\"",
+    "2월. 처음으로 제범이 먼저 \"변신 해제\"를 말한다. 회사 일로 지친 밤이다. 모경은 아무것도 정해 주지 않고 끝까지 듣는다. 다 듣고 나서 묻는다. \"그래서, 너는 어떻게 하고 싶어?\"",
     "*",
-    "4월. 그녀의 친구 결혼식. 그는 넥타이를 고르지 않는다. 그녀가 고른 넥타이를 맨다. 솔직히 조금 촌스럽다. 그는 그 말을 얼굴 보고 한다. 둘 다 웃는다. 넥타이는 그대로 맨다.",
+    "4월. 하루의 결혼식. 제범은 넥타이를 고르지 않는다. 모경이 고른 넥타이를 맨다. 솔직히 조금 촌스럽다. 제범은 그 말을 얼굴 보고 한다. 둘 다 웃는다. 넥타이는 그대로 맨다. 축가 자리에서 재희가 블루 마스크 키링을 흔든다.",
     "*",
-    "7월. 처음으로 누군가 \"변신 해제\"를 말한 밤. 놀이는 멈추고, 둘은 오래 이야기한다. 다 끝나고 나서 그녀가 프로필을 다시 핑크로 바꾼다. 내일 또 싸워도 된다는 뜻이다.",
+    "7월. 피보의 여섯 번째 생일. 산책 중에 피보가 앉는다. 둘은 피보가 고른 길로 간다. 처음 보는 골목 끝에 작은 바다가 보이는 언덕이 있다.",
     "*",
-    "그리고 다음 화. 악당과 핑크, 이번에도 둘이 같이 정한다.",
+    "그리고 다음 화. 핑크와 황제, 이번에도 둘이 같이 정한다.",
   ];
   const AFTERWORD_SIGNATURE = '';
 
@@ -50,15 +50,17 @@
     { kind: "애니메이션", by: "노다 히로시, 와카마쓰 다카히로", title: "사랑은 세계정복 후에", year: 2022, url: "https://www.youtube.com/results?search_query=%EC%82%AC%EB%9E%91%EC%9D%80%20%EC%84%B8%EA%B3%84%EC%A0%95%EB%B3%B5%20%ED%9B%84%EC%97%90%20%EC%98%88%EA%B3%A0%ED%8E%B8" },
     { kind: "영화", by: "Curry Barker", title: "Obsession", year: 2026, url: "https://www.youtube.com/results?search_query=Obsession%20Curry%20Barker%20trailer" },
     { kind: "특촬", by: "도에이", title: "광전대 마스크맨", year: 1987, url: "https://www.youtube.com/results?search_query=%EA%B4%91%EC%A0%84%EB%8C%80%20%EB%A7%88%EC%8A%A4%ED%81%AC%EB%A7%A8%20%EC%98%A4%ED%94%84%EB%8B%9D" },
+    { kind: "특촬", by: "도에이", title: "초전자 바이오맨", year: 1984, url: "https://www.youtube.com/results?search_query=%EB%B0%94%EC%9D%B4%EC%98%A4%EB%A7%A8%20%ED%94%BC%EB%B3%B4" },
     { kind: "음악", by: "듀스", title: "나를 돌아봐", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%82%98%EB%A5%BC%20%EB%8F%8C%EC%95%84%EB%B4%90" },
     { kind: "음악", by: "듀스", title: "우리는", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EC%9A%B0%EB%A6%AC%EB%8A%94" },
     { kind: "음악", by: "듀스", title: "사랑, 두려움", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EC%82%AC%EB%9E%91%2C%20%EB%91%90%EB%A0%A4%EC%9B%80" },
     { kind: "음악", by: "듀스", title: "다투고 난 뒤", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%8B%A4%ED%88%AC%EA%B3%A0%20%EB%82%9C%20%EB%92%A4" },
+    { kind: "음악", by: "듀스", title: "또 하루", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%98%90%20%ED%95%98%EB%A3%A8" },
     { kind: "음악", by: "듀스", title: "굴레를 벗어나", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EA%B5%B4%EB%A0%88%EB%A5%BC%20%EB%B2%97%EC%96%B4%EB%82%98" }
   ];
 
   // Signs and inscriptions quoted in the text → bold
-  const SIGN_TEXTS = ["작전명: 메뉴 선택권 양보", "그녀가 고르게 하기", "3월 2일. 나도 고르고 싶다고 함 → 입꼬리 내려감. 말 안 하는 게 나음.", "4월 18일. 다른 영화 보자고 함 → 대답 2초 늦음. 다음엔 그냥 따라가기.", "6월 7일. 반대 의견 → 눈 피함. 화난 듯. 전화로 할 것.", "11월 3일. 강릉 → 시내 호텔. 웃음. 핑크로 바꿈. 전화로는 말할 수 있음.", "오늘의 승부: 무승부", "다음 여행지는 같이 정함"];
+  const SIGN_TEXTS = ["작전명: 메뉴 선택권 양보", "그녀가 고르게 하기", "3월 2일. 나도 고르고 싶다고 함 → 입꼬리 내려감. 말 안 하는 게 나음.", "4월 18일. 다른 영화 보자고 함 → 대답 2초 늦음. 다음엔 그냥 따라가기.", "6월 7일. 반대 의견 → 눈 피함. 화난 듯. 전화로 할 것.", "11월 3일. 강릉 → 시내 호텔. 웃음. 핑크로 바꿈. 전화로는 말할 수 있음.", "결투장. 토요일 밤, 강릉 바다. 지하제국 황제가 핑크 마스크에게 최종 결전을 신청한다. 피보 동반 가능. 거절은 없음. 아니, 거절해도 됨. 네가 정해.", "1. 보이스톡에서는 핑크가 이긴다. 황제는 진다.", "2. 만나면 모경이 져 준다. 단, 져 주기 전에 한 가지는 얼굴 보고 말한다.", "3. 황제는 정하기 전에 묻는다. 물어본 척 말고 진짜로.", "4. 놀이가 아프면 누구든 \"변신 해제\". 그때는 놀이 아니고 그냥 우리.", "5. 피보가 앉으면 그날 산책 길은 피보가 정한다.", "오늘의 결전: 핑크 승", "전화에서는 지고, 만나면 묻는다"];
   function paraHtml(text) {
     if (/^\*[^*]+\*$/.test(text)) return `<em class="aside">${escapeHtml(text.slice(1, -1))}</em>`;
     let html = escapeHtml(text);
@@ -66,10 +68,10 @@
     // 시나리오 혼합체: 장면 머리(S#n.), INSERT/FLASHBACK 줄, '이름 : 대사'
     const sm = text.match(/^S#(\d+)\./);
     if (sm) return `<span class="scene-head">${html}</span>` + (SCENE_IMAGES[sm[1]] ? `<img class="scene-img" src="${SCENE_IMAGES[sm[1]]}" alt="" width="1600" height="900" loading="lazy">` : '');
-    // 남자의 상상(특촬물 화면) / 현실 / 자막 배지도 같은 방식
-    const lm = text.match(/^(화면|회상 몽타주|회상|다시 현재|남자의 상상|현실|자막)(?: — | (?=\(S#))/);
+    // 제범의 상상(특촬물 화면) / 현실 / 자막 배지도 같은 방식
+    const lm = text.match(/^(화면|회상 몽타주|회상|다시 현재|제범의 상상|현실|자막)(?: — | (?=\(S#))/);
     if (lm) {
-      const kind = lm[1] === '남자의 상상' ? ' sc-imag' : lm[1] === '현실' ? ' sc-real' : '';
+      const kind = lm[1] === '제범의 상상' ? ' sc-imag' : lm[1] === '현실' ? ' sc-real' : '';
       return `<span class="sc-insert${kind}"><span class="sc-badge">${lm[1]}</span>${html.slice(escapeHtml(lm[0]).length)}</span>`;
     }
     return html.replace(/^([^:<(]{1,24}?)(?: \(([^)]+)\))? : /, (m, who, tag) => `<span class="who">${who}</span>` + (tag ? `<span class="who-tag">${tag}</span>` : ''));
@@ -81,7 +83,8 @@
     2: `<svg viewBox="0 0 64 64"><path d="M8 12h26a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H20l-8 7v-7H8a4 4 0 0 1-4-4V16a4 4 0 0 1 4-4z"/><path d="M42 24h14a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-2v7l-7-7H32a4 4 0 0 1-4-4v-4" opacity=".75"/></svg>`,
     3: `<svg viewBox="0 0 64 64"><path d="M16 56V16a7 7 0 0 1 14 0"/><path d="M26 16h9l-2 5h-5z"/><path d="M30 21l-7 16M31 21l7 16" opacity=".35"/><rect x="40" y="10" width="18" height="22" rx="1"/><path d="M49 10v22M40 21h18"/><path d="M8 56h50"/></svg>`,
     4: `<svg viewBox="0 0 64 64"><path d="M12 34l20-14 6 9-20 14z"/><path d="M36 31c4 4 6 9 6 13"/><ellipse cx="38" cy="52" rx="20" ry="4"/><path d="M44 44c1 2 1 4 0 6" opacity=".6"/></svg>`,
-    5: `<svg viewBox="0 0 64 64"><circle cx="32" cy="22" r="9"/><path d="M6 40c5-4 9-4 13 0s9 4 13 0 9-4 13 0 9 4 13 0"/><path d="M6 50c5-4 9-4 13 0s9 4 13 0 9-4 13 0 9 4 13 0" opacity=".6"/></svg>`,
+    5: `<svg viewBox="0 0 64 64"><rect x="10" y="12" width="44" height="42" rx="3"/><path d="M10 22h44M20 8v8M44 8v8"/><path d="M18 30h6M29 30h6M40 30h6M18 38h6M29 38h6" opacity=".6"/><path d="M38 41l5 5 7-9"/></svg>`,
+    6: `<svg viewBox="0 0 64 64"><circle cx="32" cy="22" r="9"/><path d="M6 40c5-4 9-4 13 0s9 4 13 0 9-4 13 0 9 4 13 0"/><path d="M6 50c5-4 9-4 13 0s9 4 13 0 9-4 13 0 9 4 13 0" opacity=".6"/></svg>`,
     cover: `<svg viewBox="0 0 64 64"><path d="M14 38a18 18 0 0 1 36 0v12H14z"/><path d="M20 36h24v8H20z"/><path d="M32 20v-6M25 22l-3-5M39 22l3-5" opacity=".7"/></svg>`,
     end: `<svg viewBox="0 0 64 64"><rect x="12" y="14" width="16" height="30" rx="3"/><rect x="36" y="14" width="16" height="30" rx="3"/><path d="M8 52h48"/><circle cx="20" cy="39" r="1.3" fill="currentColor" stroke="none"/><circle cx="44" cy="39" r="1.3" fill="currentColor" stroke="none"/></svg>`
   };
@@ -113,8 +116,8 @@
 
   // Season per scene (S#) — 날씨·계절이 화면에 보이는 장면에만. 나머지는 효과 없음
   const SCENE_SEASON = {
-    12: { key: 'rain', density: 0.5 },     // 가는 비, 그녀 집으로 뛰는 길
-    13: { key: 'rain', density: 0.35 }     // 현관 처마 끝 빗줄기
+    15: { key: 'rain', density: 0.5 },     // 가는 비, 모경의 집으로 뛰는 길
+    16: { key: 'rain', density: 0.35 }     // 현관 처마 끝 빗줄기
   };
 
   // 장면 이미지: repo의 scenes/NN.png 를 올리고 여기에 {S#: 'NN'} 을 적으면 자동 연결. 없는 파일은 조용히 건너뜀
