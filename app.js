@@ -48,7 +48,6 @@
   const INSPIRATIONS = [
     { kind: "드라마", by: "박상우, 김지운", title: "지금 거신 전화는", year: 2024, url: "https://www.youtube.com/results?search_query=%EC%A7%80%EA%B8%88%20%EA%B1%B0%EC%8B%A0%20%EC%A0%84%ED%99%94%EB%8A%94%20%EC%98%88%EA%B3%A0%ED%8E%B8" },
     { kind: "애니메이션", by: "노다 히로시, 와카마쓰 다카히로", title: "사랑은 세계정복 후에", year: 2022, url: "https://www.youtube.com/results?search_query=%EC%82%AC%EB%9E%91%EC%9D%80%20%EC%84%B8%EA%B3%84%EC%A0%95%EB%B3%B5%20%ED%9B%84%EC%97%90%20%EC%98%88%EA%B3%A0%ED%8E%B8" },
-    { kind: "영화", by: "Curry Barker", title: "Obsession", year: 2026, url: "https://www.youtube.com/results?search_query=Obsession%20Curry%20Barker%20trailer" },
     { kind: "특촬", by: "도에이", title: "광전대 마스크맨", year: 1987, url: "https://www.youtube.com/results?search_query=%EA%B4%91%EC%A0%84%EB%8C%80%20%EB%A7%88%EC%8A%A4%ED%81%AC%EB%A7%A8%20%EC%98%A4%ED%94%84%EB%8B%9D" },
     { kind: "특촬", by: "도에이", title: "초전자 바이오맨", year: 1984, url: "https://www.youtube.com/results?search_query=%EB%B0%94%EC%9D%B4%EC%98%A4%EB%A7%A8%20%ED%94%BC%EB%B3%B4" },
     { kind: "음악", by: "듀스", title: "나를 돌아봐", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%82%98%EB%A5%BC%20%EB%8F%8C%EC%95%84%EB%B4%90" },
