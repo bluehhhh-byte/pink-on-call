@@ -25,7 +25,7 @@ window.SeasonFX = (function () {
       fly: 'rgba(242,220,163,',
       leaf: ['rgba(214,128,66,', 'rgba(176,86,45,', 'rgba(222,170,70,', 'rgba(150,95,45,'],
       snow: 'rgba(242,238,230,',
-      ripple: 'rgba(216,181,106,'
+      ripple: 'rgba(255,127,178,'
     },
     light: {
       rain: 'rgba(80,95,130,',

@@ -1372,7 +1372,7 @@
           const alpha = 0.22 + 0.55 * Math.sin(s.phase);
           ctx.beginPath();
           ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(216, 181, 106, ${Math.max(0.06, alpha)})`;
+          ctx.fillStyle = `rgba(255, 127, 178, ${Math.max(0.06, alpha)})`;
           ctx.fill();
         }
         if (!shoot && Math.random() < 0.0014) {
