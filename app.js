@@ -71,7 +71,32 @@
 
   // Signs and inscriptions quoted in the text → bold
   const SIGN_TEXTS = ["작전명: 메뉴 선택권 양보", "그녀가 고르게 하기", "3월 2일. 나도 고르고 싶다고 함 → 입꼬리 내려감. 말 안 하는 게 나음.", "4월 18일. 다른 영화 보자고 함 → 대답 2초 늦음. 다음엔 그냥 따라가기.", "6월 7일. 반대 의견 → 눈 피함. 화난 듯. 전화로 할 것.", "11월 3일. 강릉 → 시내 호텔. 웃음. 핑크로 바꿈. 전화로는 말할 수 있음.", "결투장. 토요일 밤, 강릉 바다. 지하제국 황제가 핑크 마스크에게 최종 결전을 신청한다. 피보 동반 가능. 거절은 없음. 아니, 거절해도 됨. 네가 정해.", "1. 보이스톡에서는 핑크가 이긴다. 황제는 진다.", "2. 만나면 모경이 져 준다. 단, 져 주기 전에 한 가지는 얼굴 보고 말한다.", "3. 황제는 정하기 전에 묻는다. 물어본 척 말고 진짜로.", "4. 놀이가 아프면 누구든 \"변신 해제\". 그때는 놀이 아니고 그냥 우리.", "5. 피보가 앉으면 그날 산책 길은 피보가 정한다.", "오늘의 결전: 핑크 승", "전화에서는 지고, 만나면 묻는다", "미워할 것"];
+  const INSERT_IMAGE_FILES = [
+    ["화면 — 카카오톡 프로필 목록.", "s02-profile-list.webp", "평범한 프로필 사이에서 고른 하얀 강아지 사진"],
+    ["제범이 눌러 본다. 강아지 사진이 사라졌다.", "s04-pink-profile.webp", "강아지 사진에서 분홍 전사로 바뀐 프로필"],
+    ["화면 — 검색 결과.", "s08-dogler-search.webp", "검색 결과에 나타난 초록 괴수 도글러"],
+    ["제범이 회사 후배 명재희(34)에게", "s09-blue-keyring.webp", "재희의 파란 헬멧 열쇠고리와 제범의 분홍 프로필"],
+    ["화면 — 태블릿 속 낡은 화질의 장면.", "s19-frozen-princess.webp", "태블릿 영상 속 얼음에 갇힌 이알"],
+    ["재희 : 동생 이알은", "s19-royal-twins.webp", "얼음에 갇힌 동생 이알과 은빛 갑옷으로 자신을 숨긴 언니 이감"],
+    ["화면 — 메모 제목", "s22-expression-note.webp", "제범이 발견한 날짜별 표정 기록"],
+    ["제범이 눌러 본다. 핑크 마스크가 사라졌다.", "s25-gray-profile.webp", "분홍 전사가 사라지고 회색 기본 프로필만 남은 휴대전화"],
+    ["재희 : (잠시 생각하다) 모르죠.", "s28-queen-farewell.webp", "지상에 남은 연인을 뒤로하고 지하 왕국으로 돌아가는 이알"],
+    ["화면 — 태블릿 속 낡은 화질. 황제의 옷이 찢어지고", "s28-emperor-revealed.webp", "찢어진 황제의 망토에서 일어서는 검은 괴물"],
+    ["연립주택의 좁은 거실.", "s31-vhs-childhood.webp", "1996년 거실에서 텔레비전 속 분홍 전사를 따라 하는 어린 모경"],
+    ["화면 — 〈결투장.", "s34-challenge-note.webp", "닫힌 현관문 아래로 건넨 강릉 결투장"],
+    ["화면 — 〈5. 피보가 앉으면", "s39-shared-rules.webp", "밤바다 앞에서 두 사람이 함께 고쳐 쓴 약속"],
+    ["화면 — 친구 목록. 강아지를 옆에 둔", "s42-two-profiles.webp", "한 화면에 나란히 나타난 분홍 전사와 피보, 가면을 쓴 황제"]
+  ];
+
   function paraHtml(text) {
+    const prose = formatParaHtml(text);
+    const image = INSERT_IMAGE_FILES.find(([prefix]) => text.startsWith(prefix));
+    if (!image) return prose;
+    const [, filename, alt] = image;
+    return prose + `<img class="scene-img imag-img insert-img" src="scenes/inserts/${filename}" alt="${escapeHtml(alt)}" width="1600" height="900" loading="lazy">`;
+  }
+
+  function formatParaHtml(text) {
     if (/^\*[^*]+\*$/.test(text)) return `<em class="aside">${escapeHtml(text.slice(1, -1))}</em>`;
     let html = escapeHtml(text);
     for (const t of SIGN_TEXTS) if (text.includes(t)) html = html.replace(escapeHtml(t), `<strong class="sign">${escapeHtml(t)}</strong>`);
