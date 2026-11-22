@@ -14,8 +14,8 @@
   'use strict';
 
   const STORAGE_KEY_SETTINGS = 'pink_on_call_settings_v1';
-  const STORAGE_KEY_PROGRESS = 'pink_on_call_progress_v1';
-  const STORAGE_KEY_BOOKMARKS = 'pink_on_call_bookmarks_v1';
+  const STORAGE_KEY_PROGRESS = 'pink_on_call_progress_v2';
+  const STORAGE_KEY_BOOKMARKS = 'pink_on_call_bookmarks_v2';
 
   const FONT_MAP = {
     gowun: "'Gowun Batang', 'Noto Serif KR', serif",
@@ -30,18 +30,7 @@
 
   // Ending credits (다음 화 예고) — edit freely.
   const CREDITS_CHAPTER_ID = 99;
-  // 다음 화 예고 — 에필로그. '*' = 장면 나눔
-  const AFTERWORD_PARAS = [
-    "12월. 첫눈이 온 밤, 보이스톡이 울린다. 핑크다. \"너 오늘 내 장갑, 네 마음대로 골라 사 왔지.\" 황제는 순순히 패배를 인정한다. 다음 날 모경은 그 장갑을 끼고 나온다. 손이 따뜻하다고, 얼굴 보고 말한다.",
-    "*",
-    "2월. 처음으로 제범이 먼저 \"변신 해제\"를 말한다. 회사 일로 지친 밤이다. 모경은 아무것도 정해 주지 않고 끝까지 듣는다. 다 듣고 나서 묻는다. \"그래서, 너는 어떻게 하고 싶어?\"",
-    "*",
-    "4월. 하루의 결혼식. 제범은 넥타이를 고르지 않는다. 모경이 고른 넥타이를 맨다. 솔직히 조금 촌스럽다. 제범은 그 말을 얼굴 보고 한다. 둘 다 웃는다. 넥타이는 그대로 맨다. 축가 자리에서 재희가 블루 마스크 키링을 흔든다.",
-    "*",
-    "7월. 피보의 여섯 번째 생일. 산책 중에 피보가 앉는다. 둘은 피보가 고른 길로 간다. 처음 보는 골목 끝에 작은 바다가 보이는 언덕이 있다.",
-    "*",
-    "그리고 다음 화. 핑크와 황제, 이번에도 둘이 같이 정한다.",
-  ];
+  const AFTERWORD = window.NOVEL_DATA.epilogue;
   const AFTERWORD_SIGNATURE = '';
 
   // What inspired the story — listed after the afterword. 소설은 해설 영상, 영화는 예고편, 음악은 음원.
@@ -58,30 +47,24 @@
     { kind: "음악", by: "듀스", title: "굴레를 벗어나", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EA%B5%B4%EB%A0%88%EB%A5%BC%20%EB%B2%97%EC%96%B4%EB%82%98" }
   ];
 
-  // 제범의 상상 문단 → 그림 (scenes/imag/*.svg). 문단이 이 문구로 시작하면 그 아래에 붙임
-  const IMAG_IMAGE_FILES = [["화면이 오래된 특촬물 방송처럼", "imag01.svg"], ["핑크 마스크가 공중으로 뛰어오른다", "imag02.svg"], ["낡은 특촬물 엔딩처럼 화면이 정지 화면으로", "imag03.svg"], ["색 바랜 특촬물 화면. 동굴 같은 지하 기지", "imag04.svg"], ["자막. 〈도글러, 제2화에서 박멸〉", "imag05.svg"], ["〈도글러, 제3화에서 박멸〉", "imag06.svg"], ["〈도글러, 제4화에서 박멸〉", "imag07.svg"], ["〈도글러, 제5화에서 박멸〉", "imag08.svg"], ["특촬물의 변신 해제 장면처럼", "imag09.svg"], ["색 바랜 특촬물 화면. 이번에는 매주 나오는 괴물이 아니다", "imag10.svg"], ["특촬물 화면이 일그러진다", "imag11.svg"], ["특촬물 화면이 켜지려다 지직거린다", "imag12.svg"], ["지하 왕좌 앞. 핑크 마스크가 서 있던 자리에", "imag13.svg"], ["텅 빈 미니어처 도시", "imag14.svg"], ["노란 섬광. 옐로 마스크가", "imag15.svg"], ["지하 왕좌. 황제가 된 제범이 자기 망토 아래를", "imag16.svg"], ["지하 왕좌 앞의 얼음 덩어리에 금이 간다", "imag17.svg"], ["지하제국의 성. 왕좌의 황제가 한 걸음씩", "imag18.svg"], ["쌍둥이 공주의 빛이 흔들린다", "imag19.svg"], ["쌍둥이의 빛이 하나로 합쳐진다", "imag20.svg"], ["낡은 특촬물의 엔딩 화면", "imag21.svg"]];
-  function imagImageFor(text) {
-    const body = text.replace(/^제범의 상상 — /, '');
-    const hit = IMAG_IMAGE_FILES.find(([k]) => body.startsWith(k));
-    return hit ? `<img class="scene-img imag-img" src="scenes/imag/${hit[1]}" alt="" width="1600" height="900" loading="lazy">` : '';
+  function illustrationHtml(asset, className = '') {
+    if (!asset) return '';
+    return `<img class="scene-img pixel-img ${className}" src="${escapeHtml(asset.src)}" alt="${escapeHtml(asset.alt)}" width="418" height="235" loading="lazy">`;
   }
 
-  // Signs and inscriptions quoted in the text → bold
-  const SIGN_TEXTS = ["작전명: 메뉴 선택권 양보", "그녀가 고르게 하기", "3월 2일. 나도 고르고 싶다고 함 → 입꼬리 내려감. 말 안 하는 게 나음.", "4월 18일. 다른 영화 보자고 함 → 대답 2초 늦음. 다음엔 그냥 따라가기.", "6월 7일. 반대 의견 → 눈 피함. 화난 듯. 전화로 할 것.", "11월 3일. 강릉 → 시내 호텔. 웃음. 핑크로 바꿈. 전화로는 말할 수 있음.", "결투장. 토요일 밤, 강릉 바다. 지하제국 황제가 핑크 마스크에게 최종 결전을 신청한다. 피보 동반 가능. 거절은 없음. 아니, 거절해도 됨. 네가 정해.", "1. 보이스톡에서는 핑크가 이긴다. 황제는 진다.", "2. 만나면 모경이 져 준다. 단, 져 주기 전에 한 가지는 얼굴 보고 말한다.", "3. 황제는 정하기 전에 묻는다. 물어본 척 말고 진짜로.", "4. 놀이가 아프면 누구든 \"변신 해제\". 그때는 놀이 아니고 그냥 우리.", "5. 피보가 앉으면 그날 산책 길은 피보가 정한다.", "오늘의 결전: 핑크 승", "전화에서는 지고, 만나면 묻는다", "미워할 것"];
   function paraHtml(text) {
     if (/^\*[^*]+\*$/.test(text)) return `<em class="aside">${escapeHtml(text.slice(1, -1))}</em>`;
     let html = escapeHtml(text);
-    for (const t of SIGN_TEXTS) if (text.includes(t)) html = html.replace(escapeHtml(t), `<strong class="sign">${escapeHtml(t)}</strong>`);
     // 시나리오 혼합체: 장면 머리(S#n.), INSERT/FLASHBACK 줄, '이름 : 대사'
     const sm = text.match(/^S#(\d+)\./);
-    if (sm) return `<span class="scene-head">${html}</span>` + (SCENE_IMAGES[sm[1]] ? `<img class="scene-img" src="${SCENE_IMAGES[sm[1]]}" alt="" width="1600" height="900" loading="lazy">` : '');
+    if (sm) return `<span class="scene-head">${html}</span>`;
     // 제범의 상상(특촬물 화면) / 현실 / 자막 배지도 같은 방식
     const lm = text.match(/^(화면|회상 몽타주|회상|다시 현재|제범의 상상|현실|자막)(?: — | (?=\(S#))/);
     if (lm) {
       const kind = lm[1] === '제범의 상상' ? ' sc-imag' : lm[1] === '현실' ? ' sc-real' : '';
-      return `<span class="sc-insert${kind}"><span class="sc-badge">${lm[1]}</span>${html.slice(escapeHtml(lm[0]).length)}</span>` + (kind === ' sc-imag' ? imagImageFor(text) : '');
+      return `<span class="sc-insert${kind}"><span class="sc-badge">${lm[1]}</span>${html.slice(escapeHtml(lm[0]).length)}</span>`;
     }
-    return html.replace(/^([^:<(]{1,24}?)(?: \(([^)]+)\))? : /, (m, who, tag) => `<span class="who">${who}</span>` + (tag ? `<span class="who-tag">${tag}</span>` : ''));
+    return html.replace(/^([^:<(]{1,24}?)(?: ?\(([^)]+)\))? : /, (m, who, tag) => `<span class="who">${who}</span>` + (tag ? `<span class="who-tag">${tag}</span>` : ''));
   }
 
   // Line-art motif per chapter (64×64, stroke = currentColor)
@@ -123,19 +106,8 @@
 
   // Season per scene (S#) — 날씨·계절이 화면에 보이는 장면에만. 나머지는 효과 없음
   const SCENE_SEASON = {
-    15: { key: 'rain', density: 0.5 },     // 가는 비, 모경의 집으로 뛰는 길
-    16: { key: 'rain', density: 0.35 }     // 현관 처마 끝 빗줄기
+    10: { key: 'rain', density: 0.5 }
   };
-
-  // 장면 이미지: repo의 scenes/NN.png 를 올리고 여기에 {S#: 'NN'} 을 적으면 자동 연결. 없는 파일은 조용히 건너뜀
-  const SCENE_IMAGE_FILES = {};
-  const SCENE_IMAGES = {};
-  function probeSceneImages() {
-    return Promise.all(Object.entries(SCENE_IMAGE_FILES).map(([sc, f]) => {
-      const src = `scenes/${f}.png`;
-      return fetch(src, { method: 'HEAD', cache: 'no-cache' }).then((r) => { if (r.ok) SCENE_IMAGES[sc] = src; }).catch(() => {});
-    }));
-  }
 
   // The scene showing at the end of a content page (so a new weather scene starts with its page)
   function sceneAt(page) {
@@ -381,8 +353,7 @@
       <div class="credits-top">
                 <div class="credits-star-wrap"><span class="credits-star"></span></div>
         <span class="chapter-kicker">에필로그</span>
-        <h2 class="credits-title">다음 화 예고</h2>
-        <img class="scene-img ending-img" src="scenes/imag/ending.svg" alt="" width="1600" height="900">
+        <h2 class="credits-title">${escapeHtml(AFTERWORD.title)}</h2>
       </div>`;
   const creditsBottomHtml = (withButton) => `
       <div class="credits-bottom">
@@ -390,7 +361,8 @@
         ${withButton ? '<button type="button" class="btn-open-book btn-back-cover" data-action="back-to-cover">처음으로 돌아가기</button>' : ''}
       </div>`;
   // Afterword blocks, each a paginatable item; the inspiration list is one block so it stays on a single page
-  const AFTERWORD_ITEMS = AFTERWORD_PARAS.map((t) => t === '*' ? '<p class="novel-para credits-para credits-break">＊</p>' : `<p class="novel-para credits-para">${escapeHtml(t)}</p>`);
+  const AFTERWORD_ITEMS = AFTERWORD.paragraphs.map((text, index) =>
+    `<p class="novel-para credits-para">${paraHtml(text)}${illustrationHtml(AFTERWORD.images[index], 'ending-img')}</p>`);
   const SIGNATURE_HTML = (AFTERWORD_SIGNATURE ? `<p class="novel-para credits-para credits-signature">${escapeHtml(AFTERWORD_SIGNATURE)}</p>` : '') + '<div class="credits-top credits-end-bottom"><span class="credits-end-mark">끝</span></div>';
   const INSPIRATIONS_HTML = '<div class="credits-refs"><p class="credits-ref-head">이 이야기에 영감을 준 것들</p>' +
     INSPIRATIONS.map((r, i) => `<p class="credits-ref"><a href="${r.url}" target="_blank" rel="noopener"><span class="ref-no">${i + 1}.</span> <span class="ref-kind">(${r.kind})</span> ${escapeHtml(r.by)}, 〈${escapeHtml(r.title)}〉 ${r.year ? `<span class="ref-year">(${r.year})</span>` : ''}</a></p>`).join('') +
@@ -456,11 +428,10 @@
     const measureBody = document.getElementById('measureBody');
     const maxBodyHeight = measureBody.clientHeight;
 
-    const renderNovelPara = (t) => `<p class="novel-para">${paraHtml(t)}</p>`;
     novel.chapters.forEach((chapter) => {
       chapterStartPages[chapter.id] = pages.length;
       pages.push(buildChapterPageObject(chapter));
-      fillPages(measureBody, maxBodyHeight, chapter.paragraphs, renderNovelPara, '<div class="chapter-sink"></div>', '').forEach((pg) => {
+      fillPages(measureBody, maxBodyHeight, chapter.paragraphs, (text, index) => renderNovelPara(text, chapter.images[index]), '<div class="chapter-sink"></div>', '').forEach((pg) => {
         pageNo++;
         pages.push({
           type: 'content', chapterId: chapter.id, chapterNumber: chapter.number, chapterSubtitle: chapter.subtitle,
@@ -590,13 +561,17 @@
   // =========================================================================
   // 4. Scroll mode
   // =========================================================================
+  function renderNovelPara(text, asset) {
+    return `<p class="novel-para">${paraHtml(text)}${illustrationHtml(asset, 'imag-img')}</p>`;
+  }
+
   function renderScrollModeContent() {
     const novel = window.NOVEL_DATA;
     if (!novel) return;
     const parts = novel.chapters.map((chap) => `
       <section class="scroll-chapter-block" id="scroll-chap-${chap.id}" data-chapter-id="${chap.id}">
         <div class="scroll-chapter-head">${chapterHeadHtml(chap)}</div>
-        ${chap.paragraphs.map((p) => `<p>${paraHtml(p)}</p>`).join('')}
+        ${chap.paragraphs.map((text, index) => renderNovelPara(text, chap.images[index])).join('')}
       </section>`);
     parts.push(`<section class="scroll-credits-block credits-page" id="scroll-credits" data-chapter-id="${CREDITS_CHAPTER_ID}">${CREDITS_TOP_HTML}${AFTERWORD_ITEMS.join('')}${SIGNATURE_HTML}${INSPIRATIONS_HTML}${creditsBottomHtml(false)}</section>`);
     el.scrollContent.innerHTML = parts.join('');
@@ -1602,11 +1577,7 @@
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(() => { if (state.mode === 'flip') preservePositionAndRepaginate(); });
     }
-    probeSceneImages().then(() => {
-      if (!Object.keys(SCENE_IMAGES).length) return;
-      if (state.mode === 'flip') preservePositionAndRepaginate();
-      else if (el.scrollContent.innerHTML.trim()) { const y = el.scrollViewport.scrollTop; renderScrollModeContent(); el.scrollViewport.scrollTop = y; }
-    });
+
   }
 
   // Debug/test handle (read-only use)

@@ -854,6 +854,7 @@ p.novel-para:has(> .who) { padding-left: 3.3em; }
 p.novel-para:has(> .scene-head) { margin-top: 1.9em; margin-bottom: 1em; }
 .scene-head { font-size: 0.76em; line-height: 1.5; }
 .scene-img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; margin: 0.7em 0 0; border-radius: 10px; background: var(--accent-soft); }
+.scene-img.pixel-img { aspect-ratio: 418 / 235; object-fit: contain; image-rendering: pixelated; }
 .sc-insert { display: block; padding: 0.35em 0 0.35em 0.75em; border-left: 2px solid var(--accent-soft, rgba(216,181,106,.3)); }
 .sc-badge { display: inline-block; margin-right: 0.5em; padding: 0 0.5em; border-radius: 999px; background: var(--accent-soft, rgba(216,181,106,.13)); color: var(--accent, #d8b56a); font-size: 0.78em; font-weight: 700; line-height: 1.65; vertical-align: 0.08em; }
 
