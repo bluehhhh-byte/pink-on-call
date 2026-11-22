@@ -55,12 +55,12 @@
     { kind: "음악", by: "듀스", title: "우리는", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EC%9A%B0%EB%A6%AC%EB%8A%94" },
     { kind: "음악", by: "듀스", title: "사랑, 두려움", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EC%82%AC%EB%9E%91%2C%20%EB%91%90%EB%A0%A4%EC%9B%80" },
     { kind: "음악", by: "듀스", title: "다투고 난 뒤", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%8B%A4%ED%88%AC%EA%B3%A0%20%EB%82%9C%20%EB%92%A4" },
-    { kind: "음악", by: "듀스", title: "또 하루", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%98%90%20%ED%95%98%EB%A3%A8" },
+    { kind: "음악", by: "듀스", title: "또 하루", year: 2026, url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%98%90%20%ED%95%98%EB%A3%A8" },
     { kind: "음악", by: "듀스", title: "굴레를 벗어나", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EA%B5%B4%EB%A0%88%EB%A5%BC%20%EB%B2%97%EC%96%B4%EB%82%98" }
   ];
 
   // Signs and inscriptions quoted in the text → bold
-  const SIGN_TEXTS = ["작전명: 메뉴 선택권 양보", "그녀가 고르게 하기", "3월 2일. 나도 고르고 싶다고 함 → 입꼬리 내려감. 말 안 하는 게 나음.", "4월 18일. 다른 영화 보자고 함 → 대답 2초 늦음. 다음엔 그냥 따라가기.", "6월 7일. 반대 의견 → 눈 피함. 화난 듯. 전화로 할 것.", "11월 3일. 강릉 → 시내 호텔. 웃음. 핑크로 바꿈. 전화로는 말할 수 있음.", "결투장. 토요일 밤, 강릉 바다. 지하제국 황제가 핑크 마스크에게 최종 결전을 신청한다. 피보 동반 가능. 거절은 없음. 아니, 거절해도 됨. 네가 정해.", "1. 보이스톡에서는 핑크가 이긴다. 황제는 진다.", "2. 만나면 모경이 져 준다. 단, 져 주기 전에 한 가지는 얼굴 보고 말한다.", "3. 황제는 정하기 전에 묻는다. 물어본 척 말고 진짜로.", "4. 놀이가 아프면 누구든 \"변신 해제\". 그때는 놀이 아니고 그냥 우리.", "5. 피보가 앉으면 그날 산책 길은 피보가 정한다.", "오늘의 결전: 핑크 승", "전화에서는 지고, 만나면 묻는다"];
+  const SIGN_TEXTS = ["작전명: 메뉴 선택권 양보", "그녀가 고르게 하기", "3월 2일. 나도 고르고 싶다고 함 → 입꼬리 내려감. 말 안 하는 게 나음.", "4월 18일. 다른 영화 보자고 함 → 대답 2초 늦음. 다음엔 그냥 따라가기.", "6월 7일. 반대 의견 → 눈 피함. 화난 듯. 전화로 할 것.", "11월 3일. 강릉 → 시내 호텔. 웃음. 핑크로 바꿈. 전화로는 말할 수 있음.", "결투장. 토요일 밤, 강릉 바다. 지하제국 황제가 핑크 마스크에게 최종 결전을 신청한다. 피보 동반 가능. 거절은 없음. 아니, 거절해도 됨. 네가 정해.", "1. 보이스톡에서는 핑크가 이긴다. 황제는 진다.", "2. 만나면 모경이 져 준다. 단, 져 주기 전에 한 가지는 얼굴 보고 말한다.", "3. 황제는 정하기 전에 묻는다. 물어본 척 말고 진짜로.", "4. 놀이가 아프면 누구든 \"변신 해제\". 그때는 놀이 아니고 그냥 우리.", "5. 피보가 앉으면 그날 산책 길은 피보가 정한다.", "오늘의 결전: 핑크 승", "전화에서는 지고, 만나면 묻는다", "미워할 것"];
   function paraHtml(text) {
     if (/^\*[^*]+\*$/.test(text)) return `<em class="aside">${escapeHtml(text.slice(1, -1))}</em>`;
     let html = escapeHtml(text);
