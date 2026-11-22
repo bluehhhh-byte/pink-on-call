@@ -903,7 +903,7 @@ p.novel-para:has(> .who) { display: flow-root; }
 .imag-img { margin: 0.55em 0 0.15em; border-radius: 12px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); }
 .ending-img { margin: 1.1em auto 0.4em; border-radius: 12px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); }
 
-/* 핑크는 통화 중: 제목 · 장면 머리 · 지문 기본색을 분홍으로 (대사는 본래 글자색) */
+/* 핑크는 통화 중: 제목 · 장면 머리는 분홍. 지문은 기본 글자색 */
 :root { --pink-head: #ff7fb2; --pink-ink: #ffa3c9; }
 html[data-theme="sepia"] { --pink-head: #b0386a; --pink-ink: #9c3a63; }
 html[data-theme="paper"] { --pink-head: #b8326c; --pink-ink: #a12d5e; }
@@ -911,5 +911,14 @@ html[data-theme="dawn"] { --pink-head: #b63e72; --pink-ink: #9e3a66; }
 .cover-title, .drawer-book-title, .page-header-strip .rh-left { color: var(--pink-head); }
 .page-header-strip .rh-left { opacity: 1; }
 .scene-head { color: var(--pink-head); opacity: 1; }
-.page-body-content p.novel-para, .scroll-chapter-block p { color: var(--pink-ink); }
-.page-body-content p.novel-para:has(> .who), .scroll-chapter-block p:has(> .who) { color: var(--text-primary); }
+
+.scene-img.imag-img, .scene-img.ending-img { image-rendering: pixelated; }
+
+/* 인물별 색 (이름 칸 + 대사). 어두운 테마는 밝게, 밝은 테마는 진하게 */
+:root { --c-jb: #c9a6ff; --c-mg: #ff9cc8; --c-hr: #ffd866; --c-jh: #8fc4ff; }
+html[data-theme="sepia"], html[data-theme="paper"], html[data-theme="dawn"] { --c-jb: #6a3fb5; --c-mg: #b8326c; --c-hr: #8f6200; --c-jh: #1f5fae; }
+.who-jb, .say-jb { color: var(--c-jb); }
+.who-mg, .say-mg { color: var(--c-mg); }
+.who-hr, .say-hr { color: var(--c-hr); }
+.who-jh, .say-jh { color: var(--c-jh); }
+.say strong.sign { color: inherit; }
