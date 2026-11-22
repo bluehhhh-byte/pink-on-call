@@ -59,6 +59,14 @@
     { kind: "음악", by: "듀스", title: "굴레를 벗어나", year: '', url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EA%B5%B4%EB%A0%88%EB%A5%BC%20%EB%B2%97%EC%96%B4%EB%82%98" }
   ];
 
+  // 제범의 상상 문단 → 그림 (scenes/imag/*.svg). 문단이 이 문구로 시작하면 그 아래에 붙임
+  const IMAG_IMAGE_FILES = [["화면이 오래된 특촬물 방송처럼", "imag01.svg"], ["핑크 마스크가 공중으로 뛰어오른다", "imag02.svg"], ["낡은 특촬물 엔딩처럼 화면이 정지 화면으로", "imag03.svg"], ["색 바랜 특촬물 화면. 동굴 같은 지하 기지", "imag04.svg"], ["자막. 〈도글러, 제2화에서 박멸〉", "imag05.svg"], ["〈도글러, 제3화에서 박멸〉", "imag06.svg"], ["〈도글러, 제4화에서 박멸〉", "imag07.svg"], ["〈도글러, 제5화에서 박멸〉", "imag08.svg"], ["특촬물의 변신 해제 장면처럼", "imag09.svg"], ["색 바랜 특촬물 화면. 이번에는 매주 나오는 괴물이 아니다", "imag10.svg"], ["특촬물 화면이 일그러진다", "imag11.svg"], ["특촬물 화면이 켜지려다 지직거린다", "imag12.svg"], ["지하 왕좌 앞. 핑크 마스크가 서 있던 자리에", "imag13.svg"], ["텅 빈 미니어처 도시", "imag14.svg"], ["노란 섬광. 옐로 마스크가", "imag15.svg"], ["지하 왕좌. 황제가 된 제범이 자기 망토 아래를", "imag16.svg"], ["지하 왕좌 앞의 얼음 덩어리에 금이 간다", "imag17.svg"], ["지하제국의 성. 왕좌의 황제가 한 걸음씩", "imag18.svg"], ["쌍둥이 공주의 빛이 흔들린다", "imag19.svg"], ["쌍둥이의 빛이 하나로 합쳐진다", "imag20.svg"], ["낡은 특촬물의 엔딩 화면", "imag21.svg"]];
+  function imagImageFor(text) {
+    const body = text.replace(/^제범의 상상 — /, '');
+    const hit = IMAG_IMAGE_FILES.find(([k]) => body.startsWith(k));
+    return hit ? `<img class="scene-img imag-img" src="scenes/imag/${hit[1]}" alt="" width="1600" height="900" loading="lazy">` : '';
+  }
+
   // Signs and inscriptions quoted in the text → bold
   const SIGN_TEXTS = ["작전명: 메뉴 선택권 양보", "그녀가 고르게 하기", "3월 2일. 나도 고르고 싶다고 함 → 입꼬리 내려감. 말 안 하는 게 나음.", "4월 18일. 다른 영화 보자고 함 → 대답 2초 늦음. 다음엔 그냥 따라가기.", "6월 7일. 반대 의견 → 눈 피함. 화난 듯. 전화로 할 것.", "11월 3일. 강릉 → 시내 호텔. 웃음. 핑크로 바꿈. 전화로는 말할 수 있음.", "결투장. 토요일 밤, 강릉 바다. 지하제국 황제가 핑크 마스크에게 최종 결전을 신청한다. 피보 동반 가능. 거절은 없음. 아니, 거절해도 됨. 네가 정해.", "1. 보이스톡에서는 핑크가 이긴다. 황제는 진다.", "2. 만나면 모경이 져 준다. 단, 져 주기 전에 한 가지는 얼굴 보고 말한다.", "3. 황제는 정하기 전에 묻는다. 물어본 척 말고 진짜로.", "4. 놀이가 아프면 누구든 \"변신 해제\". 그때는 놀이 아니고 그냥 우리.", "5. 피보가 앉으면 그날 산책 길은 피보가 정한다.", "오늘의 결전: 핑크 승", "전화에서는 지고, 만나면 묻는다", "미워할 것"];
   function paraHtml(text) {
@@ -72,7 +80,7 @@
     const lm = text.match(/^(화면|회상 몽타주|회상|다시 현재|제범의 상상|현실|자막)(?: — | (?=\(S#))/);
     if (lm) {
       const kind = lm[1] === '제범의 상상' ? ' sc-imag' : lm[1] === '현실' ? ' sc-real' : '';
-      return `<span class="sc-insert${kind}"><span class="sc-badge">${lm[1]}</span>${html.slice(escapeHtml(lm[0]).length)}</span>`;
+      return `<span class="sc-insert${kind}"><span class="sc-badge">${lm[1]}</span>${html.slice(escapeHtml(lm[0]).length)}</span>` + (kind === ' sc-imag' ? imagImageFor(text) : '');
     }
     return html.replace(/^([^:<(]{1,24}?)(?: \(([^)]+)\))? : /, (m, who, tag) => `<span class="who">${who}</span>` + (tag ? `<span class="who-tag">${tag}</span>` : ''));
   }
@@ -375,6 +383,7 @@
                 <div class="credits-star-wrap"><span class="credits-star"></span></div>
         <span class="chapter-kicker">에필로그</span>
         <h2 class="credits-title">다음 화 예고</h2>
+        <img class="scene-img ending-img" src="scenes/imag/ending.svg" alt="" width="1600" height="900">
       </div>`;
   const creditsBottomHtml = (withButton) => `
       <div class="credits-bottom">

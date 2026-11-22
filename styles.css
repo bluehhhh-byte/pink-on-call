@@ -898,3 +898,7 @@ p.novel-para:has(> .who) { display: flow-root; }
 .cover-burst.b2 { animation-delay: 1.3s; }
 @keyframes burstTw { 0%, 100% { opacity: 0.3; transform: scale(0.8); } 50% { opacity: 0.95; transform: scale(1.06); } }
 @media (prefers-reduced-motion: reduce) { .cover-burst, .cover-pinkwin { animation: none; } }
+
+/* 상상 장면 그림 · 엔딩 그림 */
+.imag-img { margin: 0.55em 0 0.15em; border-radius: 12px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); }
+.ending-img { margin: 1.1em auto 0.4em; border-radius: 12px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); }
