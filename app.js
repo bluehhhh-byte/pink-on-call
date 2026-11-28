@@ -46,16 +46,86 @@
 
   // What inspired the story — listed after the afterword. 소설은 해설 영상, 영화는 예고편, 음악은 음원.
   const INSPIRATIONS = [
-    { kind: "드라마", by: "박상우, 김지운", title: "지금 거신 전화는", year: 2024, url: "https://www.youtube.com/results?search_query=%EC%A7%80%EA%B8%88%20%EA%B1%B0%EC%8B%A0%20%EC%A0%84%ED%99%94%EB%8A%94%20%EC%98%88%EA%B3%A0%ED%8E%B8" },
-    { kind: "애니메이션", by: "노다 히로시, 와카마쓰 다카히로", title: "사랑은 세계정복 후에", year: 2022, url: "https://www.youtube.com/results?search_query=%EC%82%AC%EB%9E%91%EC%9D%80%20%EC%84%B8%EA%B3%84%EC%A0%95%EB%B3%B5%20%ED%9B%84%EC%97%90%20%EC%98%88%EA%B3%A0%ED%8E%B8" },
-    { kind: "특촬", by: "도에이", title: "광전대 마스크맨", year: 1987, url: "https://www.youtube.com/results?search_query=%EA%B4%91%EC%A0%84%EB%8C%80%20%EB%A7%88%EC%8A%A4%ED%81%AC%EB%A7%A8%20%EC%98%A4%ED%94%84%EB%8B%9D" },
-    { kind: "특촬", by: "도에이", title: "초전자 바이오맨", year: 1984, url: "https://www.youtube.com/results?search_query=%EB%B0%94%EC%9D%B4%EC%98%A4%EB%A7%A8%20%ED%94%BC%EB%B3%B4" },
-    { kind: "음악", by: "듀스", title: "나를 돌아봐", year: 1993, url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%82%98%EB%A5%BC%20%EB%8F%8C%EC%95%84%EB%B4%90" },
-    { kind: "음악", by: "듀스", title: "우리는", year: 1993, url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EC%9A%B0%EB%A6%AC%EB%8A%94" },
-    { kind: "음악", by: "듀스", title: "사랑, 두려움", year: 1997, url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EC%82%AC%EB%9E%91%2C%20%EB%91%90%EB%A0%A4%EC%9B%80" },
-    { kind: "음악", by: "듀스", title: "다투고 난 뒤", year: 1995, url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%8B%A4%ED%88%AC%EA%B3%A0%20%EB%82%9C%20%EB%92%A4" },
-    { kind: "음악", by: "듀스", title: "또 하루", year: 2026, url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%98%90%20%ED%95%98%EB%A3%A8" },
-    { kind: "음악", by: "듀스", title: "굴레를 벗어나", year: 1995, url: "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EA%B5%B4%EB%A0%88%EB%A5%BC%20%EB%B2%97%EC%96%B4%EB%82%98" }
+      {
+          "kind": "드라마",
+          "by": "박상우, 김지운",
+          "title": "지금 거신 전화는",
+          "year": 2024,
+          "url": "https://www.youtube.com/results?search_query=%EC%A7%80%EA%B8%88%20%EA%B1%B0%EC%8B%A0%20%EC%A0%84%ED%99%94%EB%8A%94%20%EC%98%88%EA%B3%A0%ED%8E%B8",
+          "note": "정략결혼한 쇼윈도 부부. 아내는 목소리를 바꾼 협박 전화로만 남편에게 진심을 건넨다."
+      },
+      {
+          "kind": "애니메이션",
+          "by": "노다 히로시, 와카마쓰 다카히로",
+          "title": "사랑은 세계정복 후에",
+          "year": 2022,
+          "url": "https://www.youtube.com/results?search_query=%EC%82%AC%EB%9E%91%EC%9D%80%20%EC%84%B8%EA%B3%84%EC%A0%95%EB%B3%B5%20%ED%9B%84%EC%97%90%20%EC%98%88%EA%B3%A0%ED%8E%B8",
+          "note": "히어로 전대의 리더와 악의 조직 간부가 정체를 숨기고 하는 비밀 연애."
+      },
+      {
+          "kind": "특촬",
+          "by": "도에이",
+          "title": "광전대 마스크맨",
+          "year": 1987,
+          "url": "https://www.youtube.com/results?search_query=%EA%B4%91%EC%A0%84%EB%8C%80%20%EB%A7%88%EC%8A%A4%ED%81%AC%EB%A7%A8%20%EC%98%A4%ED%94%84%EB%8B%9D",
+          "note": "핑크 마스크와 지하제국의 황제 제바. 지상의 남자를 사랑해 얼음에 갇힌 공주."
+      },
+      {
+          "kind": "특촬",
+          "by": "도에이",
+          "title": "초전자 바이오맨",
+          "year": 1984,
+          "url": "https://www.youtube.com/results?search_query=%EB%B0%94%EC%9D%B4%EC%98%A4%EB%A7%A8%20%ED%94%BC%EB%B3%B4",
+          "note": "바이오맨 곁을 지키는 작은 로봇, 피보."
+      },
+      {
+          "kind": "음악",
+          "by": "듀스",
+          "title": "나를 돌아봐",
+          "year": 1993,
+          "url": "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%82%98%EB%A5%BC%20%EB%8F%8C%EC%95%84%EB%B4%90",
+          "note": "멀어지는 사람을 향해, 아직 여기 서 있다고 말하는 마음."
+      },
+      {
+          "kind": "음악",
+          "by": "듀스",
+          "title": "우리는",
+          "year": 1993,
+          "url": "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EC%9A%B0%EB%A6%AC%EB%8A%94",
+          "note": "어둠과 후회를 지나, 아직 남은 날들을 향해 달리는 사람."
+      },
+      {
+          "kind": "음악",
+          "by": "듀스",
+          "title": "사랑, 두려움",
+          "year": 1997,
+          "url": "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EC%82%AC%EB%9E%91%2C%20%EB%91%90%EB%A0%A4%EC%9B%80",
+          "note": "사랑이 커질수록 잃을까 두려워지는 마음."
+      },
+      {
+          "kind": "음악",
+          "by": "듀스",
+          "title": "다투고 난 뒤",
+          "year": 1995,
+          "url": "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%8B%A4%ED%88%AC%EA%B3%A0%20%EB%82%9C%20%EB%92%A4",
+          "note": "자존심으로 등을 돌린 뒤에야 상대의 눈물을 알아보는 사람."
+      },
+      {
+          "kind": "음악",
+          "by": "듀스",
+          "title": "또 하루",
+          "year": 2026,
+          "url": "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EB%98%90%20%ED%95%98%EB%A3%A8",
+          "note": "떠난 사람을 미워하지도 지우지도 못한 채, 같은 자리에 남은 하루."
+      },
+      {
+          "kind": "음악",
+          "by": "듀스",
+          "title": "굴레를 벗어나",
+          "year": 1995,
+          "url": "https://www.youtube.com/results?search_query=%EB%93%80%EC%8A%A4%20%EA%B5%B4%EB%A0%88%EB%A5%BC%20%EB%B2%97%EC%96%B4%EB%82%98",
+          "note": "오래 외면한 사랑을 인정하고, 함께할 자유를 택하는 마음."
+      }
   ];
 
   // 제범의 상상 문단 → 그림 (scenes/imag/*.webp). 문단이 이 문구로 시작하면 그 아래에 붙임
@@ -420,17 +490,19 @@
   // Afterword blocks, each a paginatable item; the inspiration list is one block so it stays on a single page
   const AFTERWORD_ITEMS = AFTERWORD_PARAS.map((t) => t === '*' ? '<p class="novel-para credits-para credits-break">＊</p>' : `<p class="novel-para credits-para">${escapeHtml(t)}</p>`);
   const SIGNATURE_HTML = (AFTERWORD_SIGNATURE ? `<p class="novel-para credits-para credits-signature">${escapeHtml(AFTERWORD_SIGNATURE)}</p>` : '') + '<div class="credits-top credits-end-bottom"><span class="credits-end-mark">끝</span></div>';
-  const INSPIRATIONS_HTML = '<div class="credits-refs"><p class="credits-ref-head">이 이야기에 영감을 준 것들</p>' +
-    INSPIRATIONS.map((r, i) => `<p class="credits-ref"><a href="${r.url}" target="_blank" rel="noopener"><span class="ref-no">${i + 1}.</span> <span class="ref-kind">(${r.kind})</span> ${escapeHtml(r.by)}, 〈${escapeHtml(r.title)}〉 ${r.year ? `<span class="ref-year">(${r.year})</span>` : ''}</a></p>`).join('') +
-    '</div>';
+  // One item per entry so a long list can run onto a second page; each entry may carry a one-line note
+  const INSPIRATION_ITEMS = ['<p class="credits-ref-head">이 이야기에 영감을 준 것들</p>'].concat(
+    INSPIRATIONS.map((r, i) => `<p class="credits-ref${r.note ? ' has-note' : ''}"><a href="${r.url}" target="_blank" rel="noopener"><span class="ref-no">${i + 1}.</span> <span class="ref-kind">(${r.kind})</span> ${escapeHtml(r.by)}, 〈${escapeHtml(r.title)}〉 ${r.year ? `<span class="ref-year">(${r.year})</span>` : ''}</a>${r.note ? `<span class="credits-ref-note">${escapeHtml(r.note)}</span>` : ''}</p>`));
+  const INSPIRATIONS_HTML = '<div class="credits-refs">' + INSPIRATION_ITEMS.join('') + '</div>';
   const creditsItemHtml = (html) => html;
 
   // Each inspiration line stays on one line: shrink the font until it fits (phones are narrow)
   function fitRefLines(root) {
     root.querySelectorAll('.credits-ref').forEach((p) => {
+      const link = p.querySelector('a') || p;
       let size = 13;
       p.style.fontSize = size + 'px';
-      while (p.scrollWidth > p.clientWidth && size > 9) { size -= 0.5; p.style.fontSize = size + 'px'; }
+      while (link.getBoundingClientRect().width > p.clientWidth && size > 9) { size -= 0.5; p.style.fontSize = size + 'px'; }
     });
   }
 
@@ -511,7 +583,7 @@
     // Signature is the tail: it never sits alone, the last paragraph moves with it if needed
     fillPages(measureBody, maxBodyHeight, AFTERWORD_ITEMS, creditsItemHtml, CREDITS_TOP_HTML, SIGNATURE_HTML, true).forEach((pg) => pushCredits(pg, 0));
     // Inspirations always open a fresh page, with the back-to-cover button beneath
-    fillPages(measureBody, maxBodyHeight, [INSPIRATIONS_HTML], creditsItemHtml, '', creditsBottomHtml(true)).forEach((pg) => pushCredits(pg, AFTERWORD_ITEMS.length));
+    fillPages(measureBody, maxBodyHeight, INSPIRATION_ITEMS, creditsItemHtml, '', creditsBottomHtml(true)).forEach((pg) => pushCredits(pg, AFTERWORD_ITEMS.length));
     measureBody.classList.remove('credits-page');
     state.pages = pages;
     state.chapterStartPages = chapterStartPages;
